@@ -4,12 +4,120 @@
     <link rel="stylesheet" href="MTDYStyle.css">
     <link rel="icon" type="image/x-icon" href="/images/MTDYFavicon.ico">
     <title>Happy Mother's Day, Momma!</title>
+    <style>
+      * {
+        background-color: #D2B48C;
+        color: #BB0022;
+      }
+
+      button {
+        background-color: transparent;
+        border:1px solid #D2B48C;
+        cursor: pointer;
+      }
+
+      #koalaImg {
+        width: 300px;
+        height: 300px;
+      }
+
+      #upgrades {
+        float: right;
+        vertical-align: top;
+      }
+
+      #upgrades img {
+        width: 100px;
+        height: 100px;
+        vertical-align: middle;
+      }
+
+      #upgrades p {
+        display: inline-block;
+      }
+
+      #upgrades button {
+        display: flex;
+        border: 2px dashed black;
+        width: 300px;
+        height: 110px;
+      }
+
+      .kpc {
+        text-align: right;
+      }
+    </style>
   </head>
   <body>
-    <noscript>
-      <h1>Happy Mother's Day, Momma!</h1>
-      <a href="https://tomorrowtides.com" target="_blank">CLICK DIS LINK</a>
-      <a href="https://raw.githubusercontent.com/GlubGlubdoggo/MTDY/main/images/guest-room-clue1.png" target="_blank">THEN CLICK DIS LINK</a>
-     </noscript>
+    <script>
+      const scoreDisplay = document.getElementById('score')
+      const kpcDisplay = document.getElementById('kpc')
+      let score = 0
+      let multiplier = 1
+      scoreDisplay.textContent = score
+      kpcDisplay.textContent = multiplier
+
+      function koalaClicked() {
+        score += multiplier
+        scoreDisplay.textContent = score
+      }
+
+      function eucaClicked() {
+        if (score >= 10) {
+          multiplier += 20 - multiplier
+          kpcDisplay.textContent = multiplier
+          score -= 10
+          scoreDisplay.textContent = score
+        } else {
+          alert("You don't have enough koalas for that!")
+        }
+      }
+
+      function eucaForestClicked() {
+        if (score >= 100) {
+          multiplier += 50 - multiplier
+          kpcDisplay.textContent = multiplier
+          score -= 100
+          scoreDisplay.textContent = score
+        } else {
+          alert("You don't have enough koalas for that!")
+        }
+      }
+
+      function austClicked() {
+        if (score >= 1000) {
+          multiplier += 500 - multiplier
+          kpcDisplay.textContent = multiplier
+          score -= 1000
+          scoreDisplay.textContent = score
+        } else {
+          alert("You don't have enough koalas for that!")
+        }
+      }
+      //uncomment the lines below if you want things to be realistic (chances of wildfires)
+      //setInterval(calculateChanceOfDisaster, 50000)
+      //function calculateChanceOfDisaster() {
+        //var chanceOfDisaster = Math.floor((Math.random() * 10) + 1)
+      //}
+      //if (chanceOfDisaster = 2) {
+        //alert("Uh oh, there was a wildfire!")
+        //score -= multiplier
+      //}
+    </script>
+    <h1>Happy Mother's Day, Momma!  Presenting... KOALA CLICKER!!!</h1>
+    <h2>Koalas: <span id="score"></span></h2><h2 class="kpc">KPC: <span id="kpc"></span></span></h2>
+<hr />
+<button onclick="koalaClicked()"><img src="https://purepng.com/public/uploads/large/koala-bear-lmr.png" id="koalaImg"></button>
+<div id="upgrades">
+  <button onclick="eucaClicked()"><p>Eucalyptus: 10 koalas<br />
+    KPC: 20 koalas</p><img src="https://runescape.wiki/images/Eucalyptus_Tree.png?dc571"></button>
+  <button onclick="eucaForestClicked()"><p>Eucalyptus Forest: 100 koalas<br />
+    KPC: 50 koalas</p><img src="https://i.pinimg.com/originals/f1/c9/bf/f1c9bfd63fb958ef3ba2e9ccd1fd8af1.jpg">
+    </button>
+  <button onclick="austClicked()"><p>Austrailia: 1,000 koalas<br />
+    KPC: 500 koalas</p><img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg"></button>
+  <button>Russian dictator Koalamir Putin makes peace with Ukraine: 10,000 koalas<br />
+  KPC: 1,000 koalas<img src="https://stickershop.line-scdn.net/stickershop/v1/product/1048377/LINEStorePC/main.png;compress=true"></button>
+</div>
   </body>
 </html>
