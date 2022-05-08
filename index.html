@@ -112,9 +112,9 @@
       
     function KPClicked() {
       if (score >= 10000) {
-        multiplier += 10000 - multiplier
+        multiplier += 1000 - multiplier
         kpcDisplay.textContent = multiplier
-        score -= 1000
+        score -= 10000
         scoreDisplay.textContent = score
       } else {
         alert("You don't have enough koalas for that!")
