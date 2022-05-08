@@ -110,14 +110,14 @@
         }
       }
       //uncomment the lines below if you want things to be realistic (chances of wildfires)
-      //setInterval(calculateChanceOfDisaster, 50000)
-      //function calculateChanceOfDisaster() {
-        //var chanceOfDisaster = Math.floor((Math.random() * 10) + 1)
-      //}
-      //if (chanceOfDisaster = 2) {
-        //alert("Uh oh, there was a wildfire!")
-        //score -= multiplier
-      //}
+      setInterval(calculateChanceOfDisaster, 50000)
+      function calculateChanceOfDisaster() {
+        var chanceOfDisaster = Math.floor((Math.random() * 10) + 1)
+      }
+      if (chanceOfDisaster = 2) {
+        alert("Uh oh, there was a wildfire!")
+        score -= multiplier
+      }
     </script>
   </body>
 </html>
