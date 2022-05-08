@@ -61,7 +61,7 @@
     </button>
   <button onclick="austClicked()"><p>Austrailia: 1,000 koalas<br />
     KPC: 500 koalas</p><img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg"></button>
-  <button>Russian dictator Koalamir Putin makes peace with Ukraine: 10,000 koalas<br />
+  <button onclick="KPClicked()">Russian dictator Koalamir Putin makes peace with Ukraine: 10,000 koalas<br />
   KPC: 1,000 koalas<img src="https://stickershop.line-scdn.net/stickershop/v1/product/1048377/LINEStorePC/main.png;compress=true"></button>
 </div>
   <script>
@@ -109,15 +109,17 @@
           alert("You don't have enough koalas for that!")
         }
       }
-      //uncomment the lines below if you want things to be realistic (chances of wildfires)
-      setInterval(calculateChanceOfDisaster, 50000)
-      function calculateChanceOfDisaster() {
-        var chanceOfDisaster = Math.floor((Math.random() * 10) + 1)
+      
+    function KPClicked() {
+      if (score >= 10000) {
+        multiplier += 10000 - multiplier
+        kpcDisplay.textContent = multiplier
+        score -= 1000
+        scoreDisplay.textContent = score
+      } else {
+        alert("You don't have enough koalas for that!")
       }
-      if (chanceOfDisaster = 2) {
-        alert("Uh oh, there was a wildfire!")
-        score -= multiplier
-      }
+    }
     </script>
   </body>
 </html>
