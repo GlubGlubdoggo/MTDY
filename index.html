@@ -58,15 +58,20 @@
     KPC: 20 koalas</p><img src="https://runescape.wiki/images/Eucalyptus_Tree.png?dc571"><p>Eucalyptus Trees Owned: <span id="eucasOwnedDisplay"></span>
     </p></button>
   <button onclick="eucaForestClicked()"><p>Eucalyptus Forest: 100 koalas<br />
-    KPC: 50 koalas</p><img src="https://i.pinimg.com/originals/f1/c9/bf/f1c9bfd63fb958ef3ba2e9ccd1fd8af1.jpg">
-    </button>
+    KPC: 50 koalas</p><img src="https://i.pinimg.com/originals/f1/c9/bf/f1c9bfd63fb958ef3ba2e9ccd1fd8af1.jpg"><p>Eucalyptus Forests Owned: <span id="eucaForestsOwnedDisplay"></span>
+    </p></button>
   <button onclick="austClicked()"><p>Austrailia: 1,000 koalas<br />
-    KPC: 500 koalas</p><img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg"></button>
+    KPC: 500 koalas</p><img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg"><p>Australias Owned: <span id="australiasOwnedDisplay"></span>
+    </p></button>
   <button onclick="KPClicked()">Russian dictator Koalamir Putin makes peace with Ukraine: 10,000 koalas<br />
-  KPC: 1,000 koalas<img src="https://stickershop.line-scdn.net/stickershop/v1/product/1048377/LINEStorePC/main.png;compress=true"></button>
+  KPC: 1,000 koalas<img src="https://stickershop.line-scdn.net/stickershop/v1/product/1048377/LINEStorePC/main.png;compress=true"><p>Koalamir Putins Owned: <span id="putinsOwnedDisplay"></span>
+    </p></button>
 </div>
   <script>
       const eucasOwnedDisplay = document.getElementById('eucasOwnedDisplay')
+      const eucaForestsOwnedDisplay = document.getElementById('eucaForestsOwnedDisplay')
+      const australiasOwnedDisplay = document.getElementById('australiasOwnedDisplay')
+      const putinsOwnedDisplay = document.getElementById('putinsOwnedDisplay')
       const scoreDisplay = document.getElementById('score')
       const kpcDisplay = document.getElementById('kpc')
       let score = 0
@@ -102,11 +107,16 @@
 
       function eucaForestClicked() {
         if (score >= 100) {
-          eucaForestsOwned++
-          multiplier += 50
-          kpcDisplay.textContent = multiplier
-          score -= 100
-          scoreDisplay.textContent = score
+          if (eucaForestsOwned >= 20) {
+            alert(`You cannot own any more than ${eucaForestsOwned} eucalyptus forests`)
+          } else {
+            eucaForestsOwned++
+            multiplier += 20
+            kpcDisplay.textContent = multiplier
+            score -= 10
+            scoreDisplay.textContent = score
+            eucaForestsOwnedDisplay.textContent = eucaForestsOwned
+          }
         } else {
           alert("You don't have enough koalas for that!")
         }
@@ -114,11 +124,16 @@
 
       function austClicked() {
         if (score >= 1000) {
-          australiasOwned++
-          multiplier += 500
-          kpcDisplay.textContent = multiplier
-          score -= 1000
-          scoreDisplay.textContent = score
+          if (australiasOwned >= 20) {
+            alert(`You cannot own any more than ${australiasOwned} Australias`)
+          } else {
+            australiasOwned++
+            multiplier += 20
+            kpcDisplay.textContent = multiplier
+            score -= 10
+            scoreDisplay.textContent = score
+            australiasOwnedDisplay.textContent = australiasOwned
+          }
         } else {
           alert("You don't have enough koalas for that!")
         }
@@ -126,14 +141,19 @@
       
     function KPClicked() {
       if (score >= 10000) {
-        putinsOwned++
-        multiplier += 1000
-        kpcDisplay.textContent = multiplier
-        score -= 10000
-        scoreDisplay.textContent = score
-      } else {
-        alert("You don't have enough koalas for that!")
-      }
+          if (putinsOwned >= 20) {
+            alert(`You cannot own any more than ${putinsOwned} Koalamir Putins`)
+          } else {
+            putinsOwned++
+            multiplier += 20
+            kpcDisplay.textContent = multiplier
+            score -= 10
+            scoreDisplay.textContent = score
+            putinsOwnedDisplay.textContent = putinsOwned
+          }
+        } else {
+          alert("You don't have enough koalas for that!")
+        }
     }
     </script>
   </body>
