@@ -69,6 +69,10 @@
       const kpcDisplay = document.getElementById('kpc')
       let score = 0
       let multiplier = 1
+      let eucasOwned
+      let eucaForestsOwned
+      let australiasOwned
+      let putinsOwned
       scoreDisplay.textContent = score
       kpcDisplay.textContent = multiplier
 
@@ -79,10 +83,15 @@
 
       function eucaClicked() {
         if (score >= 10) {
-          multiplier += 20
-          kpcDisplay.textContent = multiplier
-          score -= 10
-          scoreDisplay.textContent = score
+          if (eucasOwned >= 20) {
+            alert(`You cannot own any more than ${eucasOwned} eucalyptus trees`)
+          } else {
+            eucasOwned++
+            multiplier += 20
+            kpcDisplay.textContent = multiplier
+            score -= 10
+            scoreDisplay.textContent = score
+          }
         } else {
           alert("You don't have enough koalas for that!")
         }
@@ -90,6 +99,7 @@
 
       function eucaForestClicked() {
         if (score >= 100) {
+          eucaForestsOwned++
           multiplier += 50
           kpcDisplay.textContent = multiplier
           score -= 100
@@ -101,6 +111,7 @@
 
       function austClicked() {
         if (score >= 1000) {
+          australiasOwned++
           multiplier += 500
           kpcDisplay.textContent = multiplier
           score -= 1000
@@ -112,6 +123,7 @@
       
     function KPClicked() {
       if (score >= 10000) {
+        putinsOwned++
         multiplier += 1000
         kpcDisplay.textContent = multiplier
         score -= 10000
