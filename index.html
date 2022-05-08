@@ -55,7 +55,8 @@
 <button onclick="koalaClicked()"><img src="https://purepng.com/public/uploads/large/koala-bear-lmr.png" id="koalaImg"></button>
 <div id="upgrades">
   <button onclick="eucaClicked()"><p>Eucalyptus: 10 koalas<br />
-    KPC: 20 koalas</p><img src="https://runescape.wiki/images/Eucalyptus_Tree.png?dc571"></button>
+    KPC: 20 koalas</p><img src="https://runescape.wiki/images/Eucalyptus_Tree.png?dc571"><p>Eucalyptus Trees Owned: <span id="eucasOwnedDisplay"></span>
+    </p></button>
   <button onclick="eucaForestClicked()"><p>Eucalyptus Forest: 100 koalas<br />
     KPC: 50 koalas</p><img src="https://i.pinimg.com/originals/f1/c9/bf/f1c9bfd63fb958ef3ba2e9ccd1fd8af1.jpg">
     </button>
@@ -65,6 +66,7 @@
   KPC: 1,000 koalas<img src="https://stickershop.line-scdn.net/stickershop/v1/product/1048377/LINEStorePC/main.png;compress=true"></button>
 </div>
   <script>
+      const eucasOwnedDisplay = document.getElementById('eucasOwnedDisplay')
       const scoreDisplay = document.getElementById('score')
       const kpcDisplay = document.getElementById('kpc')
       let score = 0
@@ -91,6 +93,7 @@
             kpcDisplay.textContent = multiplier
             score -= 10
             scoreDisplay.textContent = score
+            eucasOwnedDisplay.textContent = eucasOwned
           }
         } else {
           alert("You don't have enough koalas for that!")
