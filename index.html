@@ -52,7 +52,8 @@
   </head>
   <body>
     <h1>Presenting... KOALA CLICKER!!!</h1>
-    <button onclick="playMusic()"><h2>I want some music</h2></button>
+    <button onclick="playMusic()"><h2>Click if you want some music</h2></button>
+    <button onclick="switchSongs()"><h2>Click if you don't like this song</h2></button>
     <h2>Koalas: <span id="score"></span></h2><h2 class="kpc">KPC: <span id="kpc"></span></span></h2>
 <hr />
 <button onclick="koalaClicked()"><img src="https://purepng.com/public/uploads/large/koala-bear-lmr.png" id="koalaImg"></button>
@@ -72,13 +73,14 @@
 </div>
   <script>
       const koalaSFX = new Audio('/sounds/koala[1].mp3')
-      const rezonateCanvasClean = new Audio('/sounds/Rezonate - Canvas (totally clean).mp3')
+      const music = new Audio(songs[songNumber].file)
       const eucasOwnedDisplay = document.getElementById('eucasOwnedDisplay')
       const eucaForestsOwnedDisplay = document.getElementById('eucaForestsOwnedDisplay')
       const australiasOwnedDisplay = document.getElementById('australiasOwnedDisplay')
       const putinsOwnedDisplay = document.getElementById('putinsOwnedDisplay')
       const scoreDisplay = document.getElementById('score')
       const kpcDisplay = document.getElementById('kpc')
+      let songNumber = 1
       let score = 0
       let multiplier = 1
       let eucasOwned = 0
@@ -87,9 +89,18 @@
       let putinsOwned = 0
       scoreDisplay.textContent = score
       kpcDisplay.textContent = multiplier
+      const songs = {
+        "1": {
+          "file": "/sounds/Rezonate - Canvas (totally clean).mp3"
+        }
+      }
       
       function playMusic() {
-        rezonateCanvasClean.play()
+        music.play()
+      }
+    
+      function switchSongs() {
+        songNumber++
       }
 
       function koalaClicked() {
