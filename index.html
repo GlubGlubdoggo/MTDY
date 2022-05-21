@@ -73,14 +73,14 @@
 </div>
   <script>
       const koalaSFX = new Audio('/sounds/koala[1].mp3')
-      const music = new Audio(songs[songNumber].file)
+      var music = new Audio(),
+          i = 0
       const eucasOwnedDisplay = document.getElementById('eucasOwnedDisplay')
       const eucaForestsOwnedDisplay = document.getElementById('eucaForestsOwnedDisplay')
       const australiasOwnedDisplay = document.getElementById('australiasOwnedDisplay')
       const putinsOwnedDisplay = document.getElementById('putinsOwnedDisplay')
       const scoreDisplay = document.getElementById('score')
       const kpcDisplay = document.getElementById('kpc')
-      let songNumber = 1
       let score = 0
       let multiplier = 1
       let eucasOwned = 0
@@ -89,18 +89,22 @@
       let putinsOwned = 0
       scoreDisplay.textContent = score
       kpcDisplay.textContent = multiplier
-      const songs = {
-        "1": {
-          "file": "/sounds/Rezonate - Canvas (totally clean).mp3"
-        }
-      }
+      const playlist = new Array('/sounds/Rezonate - Canvas (totally clean).mp3', '/sounds/Rezonate - Ash.mp3')
+      
+      music.addEventListener('ended', () => {
+        i = ++i < playlist.length ? i : 0
+        audio.src = playlist[i]
+        audio.play()
+      }, true)
       
       function playMusic() {
         music.play()
       }
     
       function switchSongs() {
-        songNumber++
+        i = ++i < playlist.length ? i : 0
+        audio.src = playlist[i]
+        audio.play()
       }
 
       function koalaClicked() {
