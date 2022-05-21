@@ -51,7 +51,8 @@
     </style>
   </head>
   <body>
-    <h1>Happy Mother's Day, Momma!  Presenting... KOALA CLICKER!!!</h1>
+    <h1>Presenting... KOALA CLICKER!!!</h1>
+    <button onclick="playMusic()"><h2>I want some music</h2></button>
     <h2>Koalas: <span id="score"></span></h2><h2 class="kpc">KPC: <span id="kpc"></span></span></h2>
 <hr />
 <button onclick="koalaClicked()"><img src="https://purepng.com/public/uploads/large/koala-bear-lmr.png" id="koalaImg"></button>
@@ -71,6 +72,7 @@
 </div>
   <script>
       const koalaSFX = new Audio('/sounds/koala[1].mp3')
+      const rezonateCanvasClean = new Audio('/sounds/Rezonate - Canvas (totally clean).mp3')
       const eucasOwnedDisplay = document.getElementById('eucasOwnedDisplay')
       const eucaForestsOwnedDisplay = document.getElementById('eucaForestsOwnedDisplay')
       const australiasOwnedDisplay = document.getElementById('australiasOwnedDisplay')
@@ -85,6 +87,10 @@
       let putinsOwned = 0
       scoreDisplay.textContent = score
       kpcDisplay.textContent = multiplier
+      
+      function playMusic() {
+        rezonateCanvasClean.play()
+      }
 
       function koalaClicked() {
         koalaSFX.play()
