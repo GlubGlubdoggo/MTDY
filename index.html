@@ -98,6 +98,8 @@
       }, true)
       
       function playMusic() {
+        i = ++i < playlist.length ? i : 0
+        music.src = playlist[i]
         music.play()
       }
     
