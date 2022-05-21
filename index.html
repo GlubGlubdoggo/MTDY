@@ -93,8 +93,8 @@
       
       music.addEventListener('ended', () => {
         i = ++i < playlist.length ? i : 0
-        audio.src = playlist[i]
-        audio.play()
+        music.src = playlist[i]
+        music.play()
       }, true)
       
       function playMusic() {
@@ -103,8 +103,8 @@
     
       function switchSongs() {
         i = ++i < playlist.length ? i : 0
-        audio.src = playlist[i]
-        audio.play()
+        music.src = playlist[i]
+        music.play()
       }
 
       function koalaClicked() {
