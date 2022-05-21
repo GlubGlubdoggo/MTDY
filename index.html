@@ -98,9 +98,14 @@
       }, true)
       
       function playMusic() {
-        i = ++i < playlist.length ? i : 0
-        music.src = playlist[i]
-        music.play()
+        if (musicStarted) {
+          switchSongs()
+        } else {
+           i = 1
+           music.src = playlist[i]
+           music.play()
+           var musicStarted = Boolean(true)
+         }
       }
     
       function switchSongs() {
