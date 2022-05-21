@@ -54,6 +54,8 @@
     <h1>Presenting... KOALA CLICKER!!!</h1>
     <button onclick="playMusic()"><h2>Click if you want some music</h2></button>
     <button onclick="switchSongs()"><h2>Click if you don't like this song</h2></button>
+    <button onclick="loopCurrentSong()"><h2>Click if you want to loop the song you are currently listening to</h2></button>
+    <button onclick="stopLoopingCurrentSong()"><h2>Click if you would like to STOP looping the song you are currently listening to</h2></button>
     <h2>Koalas: <span id="score"></span></h2><h2 class="kpc">KPC: <span id="kpc"></span></span></h2>
 <hr />
 <button onclick="koalaClicked()"><img src="https://purepng.com/public/uploads/large/koala-bear-lmr.png" id="koalaImg"></button>
@@ -112,6 +114,14 @@
         i = ++i < playlist.length ? i : 0
         music.src = playlist[i]
         music.play()
+      }
+     
+      function loopCurrentSong() {
+        music.loop = true
+      }
+    
+      function stopLoopingCurrentSong() {
+        music.loop = false
       }
 
       function koalaClicked() {
